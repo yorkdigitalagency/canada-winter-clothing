@@ -1,0 +1,7 @@
+# Winter Clothing Canada
+
+A single-page winter shopfront for real Canadian cold: six products from Mountain Warehouse and Columbia — three parkas and three boots — with CAD prices checked November 4, 2026, a product filter and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
+
+- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): The full shopfront — all six products, quiz, calculator, comparison, and details.
+
+This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked. Photos are illustrative (Pexels), not photos of the actual products.
