@@ -70,12 +70,17 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{border:1px solid #ddd;padding:8px;text-align:left}
 th{background:#f0f0f0}
 .detail{margin-top:28px}
+.pdp{display:flex;gap:20px;align-items:flex-start}
+.pdp img{width:38%;height:250px;object-fit:cover;display:block}
+.pdp-price{font-size:22px;font-weight:800;margin:0 0 8px}
+.pdp-rate{color:#444;font-size:14px;margin:0 0 8px}
+.pdp-meta{color:#444;font-size:14px;margin:0 0 12px}
 .detail h3{font-size:20px;margin:0 0 6px}
 .detail ul{margin:6px 0}
 .catch{color:#7a3b00}
 footer{max-width:1100px;margin:0 auto;padding:20px;text-align:center;font-size:13px;color:#555}
 footer a{color:#555}
-@media(max-width:720px){header{position:static}.grid{grid-template-columns:1fr}.hero{flex-direction:column}.hero img{width:100%;height:220px}.hero h1{font-size:28px}.head input{margin-left:0;width:100%}table{font-size:12px}}
+@media(max-width:720px){header{position:static}.pdp{flex-direction:column}.pdp img{width:100%;height:220px}.grid{grid-template-columns:1fr}.hero{flex-direction:column}.hero img{width:100%;height:220px}.hero h1{font-size:28px}.head input{margin-left:0;width:100%}table{font-size:12px}}
 </style>
 </head>
 <body>
@@ -107,32 +112,32 @@ footer a{color:#555}
 
 <div class="grid" id="shop">
 <div class="card" data-cat="parka deepcold" data-title="antarctic extreme waterproof down jacket mountain warehouse">
-<a href="https://www.mountainwarehouse.com/ca/p/018823/mw/antarctic-extreme-waterproof-mens-down-jacket/"><img src="pick-frozen.webp" alt="A person in a winter jacket in a snowy forest"></a>
+<a href="#d-antarctic"><img src="pick-frozen.webp" alt="A person in a winter jacket in a snowy forest"></a>
 <div class="b"><span class="badge">Top pick</span><h3>Mountain Warehouse Antarctic Extreme</h3><p class="spec">−40°C lab-tested · 600 fill-power down · 5,000mm waterproof</p><p><span class="price">$319.99</span> <span class="was">$539.99</span> <span class="save">SAVE 41%</span></p></div>
 <div class="go"><a href="https://www.mountainwarehouse.com/ca/p/018823/mw/antarctic-extreme-waterproof-mens-down-jacket/">View at Mountain Warehouse →</a><a class="detail" href="#d-antarctic">Details ↓</a></div>
 </div>
 <div class="card" data-cat="parka deepcold under200" data-title="concord extreme down long jacket mountain warehouse">
-<a href="https://www.mountainwarehouse.com/ca/p/024714/mw/concord-extreme-mens-down-long-jacket/"><img src="pick-snow-walk.webp" alt="A person walking through heavy snow"></a>
+<a href="#d-concord"><img src="pick-snow-walk.webp" alt="A person walking through heavy snow"></a>
 <div class="b"><span class="badge">Budget pick</span><h3>Mountain Warehouse Concord Extreme</h3><p class="spec">−40°C lab-tested · 600 fill-power down · Long cut · 3-year warranty</p><p><span class="price">$189.99</span> <span class="was">$379.99</span> <span class="save">SAVE 50%</span></p></div>
 <div class="go"><a href="https://www.mountainwarehouse.com/ca/p/024714/mw/concord-extreme-mens-down-long-jacket/">View at Mountain Warehouse →</a><a class="detail" href="#d-concord">Details ↓</a></div>
 </div>
 <div class="card" data-cat="parka" data-title="columbia marquam peak fusion ii hooded parka">
-<a href="https://www.columbiasportswear.ca/en/p/mens-marquam-peak-fusion-ii-hooded-parka-2088121.html"><img src="pick-snowball.webp" alt="A person in a fur-trim hooded parka in snow"></a>
+<a href="#d-marquam"><img src="pick-snowball.webp" alt="A person in a fur-trim hooded parka in snow"></a>
 <div class="b"><span class="badge">Best value</span><h3>Columbia Marquam Peak Fusion II</h3><p class="spec">Synthetic insulation · Reflective lining · Everyday city winter</p><p><span class="price">$299.99</span> <span class="save">Tobacco $224.99</span></p></div>
 <div class="go"><a href="https://www.columbiasportswear.ca/en/p/mens-marquam-peak-fusion-ii-hooded-parka-2088121.html">View at Columbia →</a><a class="detail" href="#d-marquam">Details ↓</a></div>
 </div>
 <div class="card" id="boots" data-cat="boot deepcold" data-title="columbia expeditionist extreme winter boot">
-<a href="https://www.columbiasportswear.ca/en/p/mens-expeditionist-extreme-winter-boot-2078971.html"><img src="pick-snow-walk.webp" alt="A person walking through heavy snow"></a>
+<a href="#d-expeditionist"><img src="pick-snow-walk.webp" alt="A person walking through heavy snow"></a>
 <div class="b"><span class="badge">Top pick</span><h3>Columbia Expeditionist Extreme</h3><p class="spec">400g insulation · Waterproof · Ice-grip outsole</p><p><span class="price">$230.00</span></p></div>
 <div class="go"><a href="https://www.columbiasportswear.ca/en/p/mens-expeditionist-extreme-winter-boot-2078971.html">View at Columbia →</a><a class="detail" href="#d-expeditionist">Details ↓</a></div>
 </div>
 <div class="card" data-cat="boot under200" data-title="mountain warehouse granger waterproof thermal suede snow boots">
-<a href="https://www.mountainwarehouse.com/ca/p/062831/mw/granger-mens-waterproof-thermal-suede-snow-boots/"><img src="pick-frozen.webp" alt="A person in a winter jacket in a snowy forest"></a>
+<a href="#d-granger"><img src="pick-frozen.webp" alt="A person in a winter jacket in a snowy forest"></a>
 <div class="b"><span class="badge">Best value</span><h3>Mountain Warehouse Granger</h3><p class="spec">−20°C lab-tested · Waterproof membrane · Thinsulate lining</p><p><span class="price">$129.99</span> <span class="was">$219.99</span> <span class="save">SAVE 41%</span></p></div>
 <div class="go"><a href="https://www.mountainwarehouse.com/ca/p/062831/mw/granger-mens-waterproof-thermal-suede-snow-boots/">View at Mountain Warehouse →</a><a class="detail" href="#d-granger">Details ↓</a></div>
 </div>
 <div class="card" data-cat="boot under200" data-title="mountain warehouse frost adaptive snow boots">
-<a href="https://www.mountainwarehouse.com/ca/p/041828/mw/frost-mens-adaptive-snow-boots/"><img src="pick-snowball.webp" alt="A person in a fur-trim hooded parka in snow"></a>
+<a href="#d-frost"><img src="pick-snowball.webp" alt="A person in a fur-trim hooded parka in snow"></a>
 <div class="b"><span class="badge">Budget pick</span><h3>Mountain Warehouse Frost</h3><p class="spec">Water-resistant upper · Waterproof membrane base · Touch-strap fit</p><p><span class="price">$49.99</span> <span class="was">$79.99</span> <span class="save">SAVE 38%</span></p></div>
 <div class="go"><a href="https://www.mountainwarehouse.com/ca/p/041828/mw/frost-mens-adaptive-snow-boots/">View at Mountain Warehouse →</a><a class="detail" href="#d-frost">Details ↓</a></div>
 </div>
@@ -180,40 +185,65 @@ footer a{color:#555}
 </section>
 
 <section class="box detail" id="d-antarctic">
-<h3>Antarctic Extreme — details</h3>
+<div class="pdp"><img src="pick-frozen.webp" alt="A person in a winter jacket in a snowy forest">
+<div><h3>Mountain Warehouse Antarctic Extreme</h3>
+<p class="pdp-price">$319.99 <span class="was">$539.99</span> <span class="save">SAVE 41%</span></p>
+<p class="pdp-rate">Rated 4.8 from 493 reviews on Mountain Warehouse's own site (AU listing)</p>
+<p class="pdp-meta">Colours include Rust — shown at $159.99 at the November 4 check · Sizes XS–3XL selectable at check (XXS, 4XL not selectable)</p>
+<p><a class="btn" href="https://www.mountainwarehouse.com/ca/p/018823/mw/antarctic-extreme-waterproof-mens-down-jacket/">View at Mountain Warehouse →</a></p></div></div>
 <ul><li>600 fill-power RDS down, 75% grey duck down / 25% feather</li><li>Fur-trim hood, inner storm cuffs, PFC-free</li><li>Sizes XS–3XL selectable at check (XXS, 4XL not selectable)</li><li>Warranty: not published on the product page</li></ul>
 <p class="catch">The catch: reviewers say it is instantly too warm indoors and sizing is hit-and-miss.</p>
-<p><a href="https://www.mountainwarehouse.com/ca/p/018823/mw/antarctic-extreme-waterproof-mens-down-jacket/">View at Mountain Warehouse →</a></p>
 </section>
 <section class="box detail" id="d-concord">
-<h3>Concord Extreme — details</h3>
+<div class="pdp"><img src="pick-snow-walk.webp" alt="A person walking through heavy snow">
+<div><h3>Mountain Warehouse Concord Extreme</h3>
+<p class="pdp-price">$189.99 <span class="was">$379.99</span> <span class="save">SAVE 50%</span></p>
+<p class="pdp-rate">Rated 4.8 from 221 reviews on Mountain Warehouse's own site (UK listing)</p>
+<p class="pdp-meta">Sizes XS–3XL selectable at check</p>
+<p><a class="btn" href="https://www.mountainwarehouse.com/ca/p/024714/mw/concord-extreme-mens-down-long-jacket/">View at Mountain Warehouse →</a></p></div></div>
 <ul><li>600 fill-power down, 75% down; downproof lining</li><li>Long cut covering the tops of your legs; detachable, adjustable hood</li><li>3-year warranty, confirmed on MW Canada and UK pages</li><li>Sizes XS–3XL selectable at check</li></ul>
 <p class="catch">The catch: the long cut is not for everyone, and one reviewer noted the −40°C figure reflects active use, not standing still.</p>
-<p><a href="https://www.mountainwarehouse.com/ca/p/024714/mw/concord-extreme-mens-down-long-jacket/">View at Mountain Warehouse →</a></p>
 </section>
 <section class="box detail" id="d-marquam">
-<h3>Marquam Peak Fusion II — details</h3>
+<div class="pdp"><img src="pick-snowball.webp" alt="A person in a fur-trim hooded parka in snow">
+<div><h3>Columbia Marquam Peak Fusion II</h3>
+<p class="pdp-price">$299.99 <span class="save">Tobacco $224.99 (was $299.99)</span></p>
+<p class="pdp-rate">62% recommend across 29 reviews on Marks &amp; Spencer</p>
+<p class="pdp-meta">Colours: Delta $299.99; Tobacco $224.99 · Sizes S–XXL</p>
+<p><a class="btn" href="https://www.columbiasportswear.ca/en/p/mens-marquam-peak-fusion-ii-hooded-parka-2088121.html">View at Columbia →</a></p></div></div>
 <ul><li>100% recycled polyester Thermarator synthetic; Omni-Heat Infinity reflective lining</li><li>Water-repellent Omni-Shield; regular fit, 33.0 in / 83.8 cm back length</li><li>Removable, adjustable hood with removable fur trim; sizes S–XXL</li><li>Columbia limited lifetime warranty (manufacturer defects only)</li></ul>
 <p class="catch">The catch: Columbia publishes no °C rating, and several reviewers found it less warm than it looks.</p>
-<p><a href="https://www.columbiasportswear.ca/en/p/mens-marquam-peak-fusion-ii-hooded-parka-2088121.html">View at Columbia →</a> · Also $299.99 at Ernie's Sports Experts.</p>
+<p>Also $299.99 at Ernie's Sports Experts.</p>
 </section>
 <section class="box detail" id="d-expeditionist">
-<h3>Expeditionist Extreme — details</h3>
+<div class="pdp"><img src="pick-snow-walk.webp" alt="A person walking through heavy snow">
+<div><h3>Columbia Expeditionist Extreme</h3>
+<p class="pdp-price">$230.00</p>
+<p class="pdp-rate">Rated 4.8/5 from 9 reviews on Zappos</p>
+<p class="pdp-meta">Size range: not published on the retailer's page · Columbia Canada returns: 60 days</p>
+<p><a class="btn" href="https://www.columbiasportswear.ca/en/p/mens-expeditionist-extreme-winter-boot-2078971.html">View at Columbia →</a></p></div></div>
 <ul><li>400g insulation; Omni-Heat Infinity lining; OutDry waterproof-breathable</li><li>Full-grain leather; Omni-Grip Ice outsole; 573g per shoe (size 9)</li><li>Columbia Canada returns: 60 days</li></ul>
 <p class="catch">The catch: testers found it best while moving — not for standing around in extreme cold.</p>
-<p><a href="https://www.columbiasportswear.ca/en/p/mens-expeditionist-extreme-winter-boot-2078971.html">View at Columbia →</a></p>
 </section>
 <section class="box detail" id="d-granger">
-<h3>Granger — details</h3>
+<div class="pdp"><img src="pick-frozen.webp" alt="A person in a winter jacket in a snowy forest">
+<div><h3>Mountain Warehouse Granger</h3>
+<p class="pdp-price">$129.99 <span class="was">$219.99</span> <span class="save">SAVE 41%</span></p>
+<p class="pdp-rate">No buyer review summary found for this boot</p>
+<p class="pdp-meta">Size range: not published on the retailer's page</p>
+<p><a class="btn" href="https://www.mountainwarehouse.com/ca/p/062831/mw/granger-mens-waterproof-thermal-suede-snow-boots/">View at Mountain Warehouse →</a></p></div></div>
 <ul><li>Lab-tested to −20°C; TechDry taped membrane with DWR</li><li>Thinsulate lining; rubber snow outsole; Phylon midsole</li></ul>
 <p class="catch">The catch: the thinnest review evidence of the six — no attributed buyer themes found.</p>
-<p><a href="https://www.mountainwarehouse.com/ca/p/062831/mw/granger-mens-waterproof-thermal-suede-snow-boots/">View at Mountain Warehouse →</a></p>
 </section>
 <section class="box detail" id="d-frost">
-<h3>Frost — details</h3>
+<div class="pdp"><img src="pick-snowball.webp" alt="A person in a fur-trim hooded parka in snow">
+<div><h3>Mountain Warehouse Frost</h3>
+<p class="pdp-price">$49.99 <span class="was">$79.99</span> <span class="save">SAVE 38%</span></p>
+<p class="pdp-rate">Rated 4.4 from 21 reviews on Mountain Warehouse Canada</p>
+<p class="pdp-meta">Size range: not published on the retailer's page · Reviews note it runs large</p>
+<p><a class="btn" href="https://www.mountainwarehouse.com/ca/p/041828/mw/frost-mens-adaptive-snow-boots/">View at Mountain Warehouse →</a></p></div></div>
 <ul><li>Microfibre padded insulation; deep-lug outsole; padded ankle</li><li>Touch-strap fit; MW Canada reviews 4.4 (21), with “runs large” notes</li></ul>
 <p class="catch">The catch: no temperature rating is published, so its cold limit is unproven.</p>
-<p><a href="https://www.mountainwarehouse.com/ca/p/041828/mw/frost-mens-adaptive-snow-boots/">View at Mountain Warehouse →</a></p>
 </section>
 
 <section class="box" id="money">
