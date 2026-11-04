@@ -1,8 +1,10 @@
 # Winter Clothing Canada
 
-One-page guide to winter parkas for real Canadian cold, focused on Mountain Warehouse and Columbia as of now. Everything on this page: picks, comparison, retailer listings, sweaters, buying guide, method, and FAQ.
+Canada-first guides to winter parkas and boots for real Canadian cold, focused on Mountain Warehouse and Columbia as of now.
 
-- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): Picks by job (deep cold on a budget, best value everyday), Mountain Warehouse and Columbia comparison, retailer listings with prices as listed November 4, 2026, sweaters and layers, buying guide (down vs synthetic, fill power, ratings, 3-layer system), how we pick, and FAQ.
-- [Full content](https://yorkdigitalagency.github.io/canada-winter-clothing/llms-full.txt): The full text of this site's guide in one file, for AI search and research tools.
+- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): Homepage — featured parka guide, parkas and boots categories, recent product reviews, and buying advice.
+- [Best Winter Parkas for Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas.html): Picks by job (top pick, budget pick, best value everyday), Mountain Warehouse and Columbia comparison, retailer listings with prices as listed November 4, 2026, sweaters and layers, buying guide (down vs synthetic, fill power, ratings, 3-layer system), how we pick, and FAQ.
+- [Best Winter Boots for Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/boots.html): Three winter boot picks with prices checked November 4, 2026, specs, and retailer links.
+- [Full content](https://yorkdigitalagency.github.io/canada-winter-clothing/llms-full.txt): The full text of this site's parka guide in one file, for AI search and research tools.
 
 This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked.
