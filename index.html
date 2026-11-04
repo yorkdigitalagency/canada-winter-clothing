@@ -32,7 +32,7 @@
 </script>
 <style>
 body{margin:0;background:#ffffff;color:#121212;font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1.7}
-header{position:sticky;top:0;background:#ffffff;border-bottom:1px solid #dfdfdf;padding:14px 20px;z-index:10}
+header{position:sticky;top:0;background:#faf6ec;border-bottom:1px solid #dfdfdf;padding:14px 20px;z-index:10}
 header .headrow{display:flex;justify-content:space-between;align-items:baseline}
 header .wordmark{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-weight:800;font-size:26px;letter-spacing:-.5px}
 header .headrow a{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;color:#121212}
@@ -46,7 +46,10 @@ h2{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-siz
 h3{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:21px;line-height:1.3;margin:20px 0 8px}
 .meta{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;color:#666;margin:0 0 4px}
 .share{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:15px;margin:12px 0 20px}
-.share a{color:#121212}
+.share a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #121212;border-radius:50%;color:#121212;text-decoration:none;font-weight:700;margin-right:8px}
+.floatpicks{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#ffffff;border:1px solid #121212;border-radius:999px;padding:8px 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;font-weight:700;color:#121212;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.15);z-index:20;white-space:nowrap}
+.floatpicks img{width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-left:6px}
+@media (max-width:520px){.row{flex-direction:column}.row img{width:100%;height:180px}h1{font-size:34px}.pickphoto{height:220px}.pickbox{padding:14px}}
 .browse{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:15px;background:#faf6ec;border:1px solid #e8e0cc;border-radius:8px;padding:14px 18px;margin:20px 0}
 .browse strong{display:block;margin-bottom:6px}
 .browse a{color:#121212}
@@ -90,7 +93,7 @@ footer a{color:#121212}
 <img class="pickphoto" src="pick-frozen.webp" alt="A person in a snow-covered winter jacket in a snowy forest">
 <p class="caption">Illustrative photo (Pexels) — not the actual jacket. The real jackets are at the retailer links in each pick section below.</p>
 <p class="meta">By Winter Clothing Canada · Updated November 4, 2026</p>
-<p class="share">Share: <a href="#" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Link copied';return false;">Copy link</a> · <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fyorkdigitalagency.github.io%2Fcanada-winter-clothing%2F&amp;text=The%20Best%20Winter%20Parkas%20for%20Canada">X</a> · <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyorkdigitalagency.github.io%2Fcanada-winter-clothing%2F">Facebook</a> · <a href="mailto:?subject=The%20Best%20Winter%20Parkas%20for%20Canada&amp;body=https%3A%2F%2Fyorkdigitalagency.github.io%2Fcanada-winter-clothing%2F">Email</a></p>
+<p class="share">Share: <a href="#" aria-label="Copy link" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✓';return false;">⧉</a> <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fyorkdigitalagency.github.io%2Fcanada-winter-clothing%2F&amp;text=The%20Best%20Winter%20Parkas%20for%20Canada" aria-label="Share on X">X</a> <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyorkdigitalagency.github.io%2Fcanada-winter-clothing%2F" aria-label="Share on Facebook">f</a> <a href="mailto:?subject=The%20Best%20Winter%20Parkas%20for%20Canada&amp;body=https%3A%2F%2Fyorkdigitalagency.github.io%2Fcanada-winter-clothing%2F" aria-label="Share by email">✉</a></p>
 <p>A Canadian winter does not ask what jacket you like. It asks whether you stay warm standing for the bus at −25, walking the dog through wet snow, or working outside long after the wind picks up — and the wrong parka answers that question fast.</p>
 <p>This guide does not pretend to have tested these jackets. We checked the brands' published specifications, read user and professional reviews — good and bad — and verified Canadian retailer pages and prices, all dated November 4, 2026. Where a brand does not publish a figure, we say so instead of guessing.</p>
 <p>Our top pick is the Mountain Warehouse Antarctic Extreme — the strongest deep-cold claim we could verify at a budget price, lab tested to −40°C.</p>
@@ -126,7 +129,7 @@ footer a{color:#121212}
 <div>
 <p class="verdict">best value everyday</p>
 <p class="role"><a href="#marquam">Best value everyday parka</a></p>
-<p class="pname">Columbia Marquam Peak Fusion II Parka</p>
+<p class="pname">Columbia Marquam Peak Fusion II Hooded Parka (Men's)</p>
 <p><a class="pricelink" href="https://ernies.ca/products/columbia-mens-marquam-peak-fusion-ii-hooded-parka">$299.99 at Ernie's Sports Experts →</a></p>
 <p class="caption">Illustrative photo (Pexels) — not the actual jacket.</p>
 </div>
@@ -210,7 +213,7 @@ Published specs, reviews good and bad, and verified Canadian retailer prices —
 <p><strong>Not the pick if you want a short jacket.</strong> The long cut covers the tops of your legs — that is the point of it, and the reason to skip it if you want a waist-length jacket. <strong>Not the pick if you stand still in deep cold.</strong> One reviewer noted the −40°C figure reflects active use, not standing still. <strong>Not the pick if sizing certainty matters.</strong> Fit reports are inconsistent — slightly big for some buyers, a good tall fit for others — and Mountain Warehouse Canada does not publish a size range for it. <strong>One isolated note questioned waterproofing and called quality average</strong>, against the majority praise for rain beading and warmth.</p>
 </div>
 
-<h2 id="marquam">Best value everyday: Columbia Marquam Peak Fusion II Parka</h2>
+<h2 id="marquam">Best value everyday: Columbia Marquam Peak Fusion II Hooded Parka (Men's)</h2>
 <div class="pickbox">
 <span class="ribbon dark">best value everyday</span>
 <img class="pickphoto" src="pick-snowball.webp" alt="A person in a fur-trim hooded parka holding a snowball">
@@ -270,6 +273,7 @@ Published specs, reviews good and bad, and verified Canadian retailer prices —
 
 <p style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;color:#555">Sources: Mountain Warehouse Canada product pages, Columbia product page, Ernie's Sports Experts product page, and Mountain Warehouse's own down-washing guide, checked November 4, 2026; review themes from Mountain Warehouse's own site, Marks &amp; Spencer user reviews, Desertcart user reviews, and a Backcountry Gearhead expert note, all labelled second-hand on the page. The Shopping Lens, Warmest Parka for −30°C, published October 30, 2026, updated November 2, 2026. Updated November 4, 2026.</p>
 </main>
+<a class="floatpicks" href="#recommend">See all our picks <img src="pick-frozen.webp" alt=""><img src="pick-snow-walk.webp" alt=""><img src="pick-snowball.webp" alt=""></a>
 <footer>
 Winter Clothing Canada — an independent guide, not a person and not a store. We sell nothing here. Affiliate links, when added, will be clearly marked, and picks are chosen before any link is added. Photos: Pexels (illustrative, not the actual jackets).
 </footer>
