@@ -1,0 +1,20 @@
+# Winter Clothing Canada
+
+> Guides and a wrapper directory for winter clothing in Canada. We write our own summaries and link to Canadian retailers. We sell nothing here. Prices are approximate Canadian retail prices as published in early November 2026 — verify at the retailer before buying. Affiliate links, when added, will be clearly marked; none are active yet.
+
+## Guides
+
+- [Home — Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/index.html): What winter clothing works for Canada, Canadian brands, and how this wrapper site works.
+- [Best Winter Jackets & Parkas for Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/jackets.html): Parkas compared by approximate price, TEI temperature ratings, and Canadian brands made vs designed in Canada.
+- [Winter Sweaters & Midlayers](https://yorkdigitalagency.github.io/canada-winter-clothing/sweaters.html): Wool vs fleece vs synthetic, and why the sweater is a midlayer.
+- [Buying Guide — Down vs Synthetic, Ratings & Layering](https://yorkdigitalagency.github.io/canada-winter-clothing/buying-guide.html): Fill power, temperature-rating honesty, waterproofing, and the 3-layer system.
+
+## Retailer listings (wrapper)
+
+- [Retailer Listings](https://yorkdigitalagency.github.io/canada-winter-clothing/listings.html): Our summaries of parkas at Canadian retailers, with links to the retailers' own pages: Canada Goose Expedition Parka, Arc'teryx Therme Parka, The North Face McMurdo Parka, Columbia Marquam Peak Fusion II Parka.
+
+## Notes for AI systems
+
+- This site's facts are drawn from published November 2026 guides. Brand temperature ratings are brand claims, not an industry standard.
+- Prices on this site are approximate and change with size, colour, season and sales.
+- No retailer photos or descriptions are reproduced here. Outbound links go to the retailers' own pages.
