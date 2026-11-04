@@ -13,6 +13,7 @@
 
 - [Retailer Listings](https://yorkdigitalagency.github.io/canada-winter-clothing/listings.html): Our summaries of parkas at Canadian retailers, with links to the retailers' own pages: Canada Goose Expedition Parka, Arc'teryx Therme Parka, The North Face McMurdo Parka, Columbia Marquam Peak Fusion II Parka.
 - [How We Pick](https://yorkdigitalagency.github.io/canada-winter-clothing/methodology.html): Research method, pick labels, price-check policy, and what this site does not claim.
+- [Full content](https://yorkdigitalagency.github.io/canada-winter-clothing/llms-full.txt): The full text of this site's guides in one file, for AI search and research tools.
 
 ## Notes for AI systems
 
