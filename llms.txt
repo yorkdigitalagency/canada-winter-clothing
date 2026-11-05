@@ -1,7 +1,17 @@
 # Winter Clothing Canada
 
-A single-page winter shopfront for real Canadian cold: six products from Mountain Warehouse and Columbia — three parkas and three boots — with CAD prices checked November 4, 2026, a product filter and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
+A single-page winter shopfront for real Canadian cold: 50 products from Mountain Warehouse (25) and Columbia (25) — parkas and boots — with CAD prices checked live on the retailers' own sites on November 5, 2026, a live price tracker and discount tracker, a product filter and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
 
-- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): The full shopfront — all six products, quiz, calculator, comparison, and details.
+- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): The full shopfront — all 50 products, price tracker, discount table, quiz, calculator, comparison, and details.
 
-This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked. Photos are illustrative (Pexels), not photos of the actual products.
+Price tracker (checked November 5, 2026; re-checked daily): 50 products tracked, 28 on sale right now. Biggest saving: Mountain Warehouse Antarctic Extreme, 63% off — $340 off ($199.99, was $539.99). Every product shows the date its price was last checked and the lowest price we have seen; a re-check that finds a lower price adds a "Price dropped" badge. Prices range $49.99–$549.99 CAD. Prices change — the retailer's page is the final word.
+
+Biggest discounts right now (November 5, 2026):
+- Mountain Warehouse Antarctic Extreme Men's Waterproof Down Jacket: $199.99 (was $539.99, save 63%).
+- Mountain Warehouse Concord Extreme Mens Down Long Jacket: $149.99 (was $379.99, save 61%).
+- Mountain Warehouse Henry II Extreme Mens Down Jacket: $119.99 (was $299.99, save 60%).
+- Mountain Warehouse Frost Tech Extreme Men's Down Padded Jacket: $151.99 (was $379.99, save 60%).
+- Mountain Warehouse EMS Stratus Mens Hooded Packable Down Jacket: $127.99 (was $319.99, save 60%).
+- Mountain Warehouse Men's Heat Sealed Down Jacket: $159.99 (was $399.99, save 60%).
+
+This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked. Product pictures are created images of similar products, not the actual product photos; pictures for the 44 newer products are being made to match each product, and 22 of 50 products have matched pictures so far. No hands-on testing: warmth and specs are the brands' own published figures.
