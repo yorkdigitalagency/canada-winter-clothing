@@ -1,17 +1,21 @@
 # Winter Clothing Canada
 
-A single-page winter shopfront for real Canadian cold: 50 products from Mountain Warehouse (25) and Columbia (25) — parkas and boots — with CAD prices checked live on the retailers' own sites on November 5, 2026, a live price tracker and discount tracker, a product filter and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
+Five guide pages for real Canadian cold: 50 products from Mountain Warehouse (25) and Columbia (25) — parkas and boots — with CAD prices checked live on the retailers' own sites on November 5, 2026, a live price tracker and discount tracker, product filters and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
 
-- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): The full shopfront — all 50 products, price tracker, discount table, quiz, calculator, comparison, and details.
+- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): Home — our 6 top picks, the live price tracker summary, the biggest-discounts table, the find-yours quiz, the cost-per-winter calculator, and links to the four guides.
+- [Warmest Parkas for Extreme Cold](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-extreme-cold.html): 12 parkas — the warmest we list. Lab-tested °C where the brand publishes one; Columbia publishes no lab °C rating, so its insulation figures are shown instead.
+- [Budget Parkas Under $200](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-budget.html): 12 parkas — the cheapest we list, all under $200 at the last check.
+- [Everyday Parkas](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-everyday.html): 11 parkas — for city winter and short trips outside.
+- [Winter Boots](https://yorkdigitalagency.github.io/canada-winter-clothing/boots.html): 16 boots — snow boots from both brands.
 
-Price tracker (checked November 5, 2026; re-checked daily): 50 products tracked, 28 on sale right now. Biggest saving: Mountain Warehouse Antarctic Extreme, 63% off — $340 off ($199.99, was $539.99). Every product shows the date its price was last checked and the lowest price we have seen; a re-check that finds a lower price adds a "Price dropped" badge. Prices range $49.99–$549.99 CAD. Prices change — the retailer's page is the final word.
+Price tracker (checked November 5, 2026; re-checked three times a day): 50 products tracked, 28 on sale right now. Biggest saving: Mountain Warehouse Antarctic Extreme, 63% off — $340 CAD off ($199.99 CAD, was $539.99 CAD). Every product shows the date its price was last checked and the lowest price we have seen; a re-check that finds a lower price adds a "Price dropped" badge. Prices range $49.99–$549.99 CAD. Prices change — the retailer's page is the final word.
 
 Biggest discounts right now (November 5, 2026):
-- Mountain Warehouse Antarctic Extreme Men's Waterproof Down Jacket: $199.99 (was $539.99, save 63%).
-- Mountain Warehouse Concord Extreme Mens Down Long Jacket: $149.99 (was $379.99, save 61%).
-- Mountain Warehouse Henry II Extreme Mens Down Jacket: $119.99 (was $299.99, save 60%).
-- Mountain Warehouse Frost Tech Extreme Men's Down Padded Jacket: $151.99 (was $379.99, save 60%).
-- Mountain Warehouse EMS Stratus Mens Hooded Packable Down Jacket: $127.99 (was $319.99, save 60%).
-- Mountain Warehouse Men's Heat Sealed Down Jacket: $159.99 (was $399.99, save 60%).
+- Mountain Warehouse Antarctic Extreme: $199.99 CAD (was $539.99 CAD, save 63%).
+- Mountain Warehouse Concord Extreme: $149.99 CAD (was $379.99 CAD, save 61%).
+- Mountain Warehouse Henry II Extreme Down Jacket: $119.99 CAD (was $299.99 CAD, save 60%).
+- Mountain Warehouse Frost Tech Extreme Down Padded Jacket: $151.99 CAD (was $379.99 CAD, save 60%).
+- Mountain Warehouse EMS Stratus Hooded Packable Down Jacket: $127.99 CAD (was $319.99 CAD, save 60%).
+- Mountain Warehouse Heat Sealed Down Jacket: $159.99 CAD (was $399.99 CAD, save 60%).
 
-This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked. Product pictures are created images of similar products, not the actual product photos; pictures for the 44 newer products are being made to match each product, and 22 of 50 products have matched pictures so far. No hands-on testing: warmth and specs are the brands' own published figures.
+This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked. Product pictures are created images of similar products, not the actual product photos; 42 of 50 products have matched pictures so far. No hands-on testing: warmth and specs are the brands' own published figures.
