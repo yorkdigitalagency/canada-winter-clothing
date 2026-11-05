@@ -70,6 +70,25 @@ function badgeHtml(p){
   var cls=p.badge==="Warmest"?"badge warm":"badge";
   return '<span class="'+cls+'">'+esc(p.badge)+'</span>';
 }
+/* ---------- picks-first summary (guide pages, like GearJunkie/OGL) ---------- */
+var ROLE_ORDER=["Top pick","Best value","Budget pick","Warmest"];
+function pagePicks(){
+  if(PAGE_MODE!=="guide")return [];
+  var ps=pageProducts().filter(function(p){return p.badge;});
+  ps.sort(function(a,b){return ROLE_ORDER.indexOf(a.badge)-ROLE_ORDER.indexOf(b.badge);});
+  return ps;
+}
+function renderPicks(){
+  var el=$("picks");if(!el)return;
+  var ps=pagePicks();
+  if(!ps.length){el.innerHTML="";return;}
+  var h='<h2 class="splithead">Our picks</h2><div class="picks">';
+  ps.forEach(function(p){
+    h+='<div class="pick">'+picHtml(p,"")+'<div class="b">'+badgeHtml(p)+'<h3>'+esc(p.name)+'</h3><p class="spec">'+esc(p.specLine)+'</p><p>'+priceHtml(p)+'</p><p><a href="'+detailLink(p)+'">Read the details \u2193</a></p></div></div>';
+  });
+  h+='</div>';
+  el.innerHTML=h;
+}
 /* ---------- wishlist + compare state ---------- */
 var wish=[];try{wish=JSON.parse(localStorage.getItem("wcc-wishlist")||"[]");}catch(e){wish=[];}
 var cmp=[];
@@ -115,31 +134,59 @@ function cardHtml(p){
 function renderCards(){
   var grid=$("shop");if(!grid)return;
   var list=visibleProducts();
+  var limited=false;
+  if(PAGE_MODE==="guide"&&!showAll&&isUnfiltered()&&list.length>6){list=list.slice(0,6);limited=true;}
   grid.innerHTML=list.map(cardHtml).join("");
   var cl=$("countLine");
   if(cl){
     if(PAGE_MODE==="home")cl.textContent="Our six top picks.";
     else cl.textContent="Showing "+list.length+" of "+pageProducts().length+" products on this page.";
   }
+  var sm=$("seeMore");
+  if(sm){
+    if(limited)sm.innerHTML='<p><button class="btn alt" onclick="toggleSeeMore()">See all '+pageProducts().length+' products</button></p>';
+    else if(PAGE_MODE==="guide"&&showAll&&isUnfiltered()&&pageProducts().length>6)sm.innerHTML='<p><button class="btn alt" onclick="toggleSeeMore()">Show fewer</button></p>';
+    else sm.innerHTML="";
+  }
 }
+/* GearJunkie-style "See more picks": the grid shows the first 6 until the
+   visitor asks for the rest. Filters and search always show all matches. */
+var showAll=false;
+function isUnfiltered(){
+  var qEl=$("search"),q=qEl?qEl.value.trim():"";
+  return !q&&maxPrice>=550&&coldReq===null;
+}
+function toggleSeeMore(){showAll=!showAll;renderCards();}
 /* ---------- detail sections ---------- */
+function detailHtml(p){
+  var h='<section class="box detail" id="d-'+p.slug+'"><div class="pdp">';
+  if(p.picture){h+='<img src="'+p.picture+'" alt="'+esc(p.alt)+'">';}
+  else{h+='<div class="ph"><b>'+esc(p.name)+'</b><span>Picture coming</span></div>';}
+  h+='<div><h3>'+esc(p.name)+'</h3><p class="pdp-price">'+priceHtml(p)+'</p>';
+  if(p.rating){h+='<p class="pdp-rate">'+esc(p.rating)+'</p>';}
+  h+='<p class="pdp-meta">'+esc(p.metaColours)+' · '+esc(p.metaSizes)+'</p>';
+  h+=trackLine(p);
+  h+='<p><a class="btn" href="'+esc(p.url)+'" target="_blank" rel="noopener">View at '+esc(p.retailer)+' \u2192</a></p></div></div>';
+  h+='<ul>'+p.specs.map(function(s){return '<li>'+esc(s)+'</li>';}).join("")+'</ul>';
+  h+='<p class="catch">The catch: '+esc(p.catch)+'</p>';
+  if(p.extra){h+='<p>'+esc(p.extra)+'</p>';}
+  h+='</section>';
+  return h;
+}
 function renderDetails(){
   var box=$("details");if(!box)return;
+  var all=pageProducts();
+  var picks=pagePicks();
+  var rest=all.filter(function(p){return !p.badge;});
   var h="";
-  pageProducts().forEach(function(p){
-    h+='<section class="box detail" id="d-'+p.slug+'"><div class="pdp">';
-    if(p.picture){h+='<img src="'+p.picture+'" alt="'+esc(p.alt)+'">';}
-    else{h+='<div class="ph"><b>'+esc(p.name)+'</b><span>Picture coming</span></div>';}
-    h+='<div><h3>'+esc(p.name)+'</h3><p class="pdp-price">'+priceHtml(p)+'</p>';
-    if(p.rating){h+='<p class="pdp-rate">'+esc(p.rating)+'</p>';}
-    h+='<p class="pdp-meta">'+esc(p.metaColours)+' · '+esc(p.metaSizes)+'</p>';
-    h+=trackLine(p);
-    h+='<p><a class="btn" href="'+esc(p.url)+'" target="_blank" rel="noopener">View at '+esc(p.retailer)+' \u2192</a></p></div></div>';
-    h+='<ul>'+p.specs.map(function(s){return '<li>'+esc(s)+'</li>';}).join("")+'</ul>';
-    h+='<p class="catch">The catch: '+esc(p.catch)+'</p>';
-    if(p.extra){h+='<p>'+esc(p.extra)+'</p>';}
-    h+='</section>';
-  });
+  if(picks.length&&rest.length){
+    h+='<h2 class="splithead">Our picks in full</h2>';
+    h+=picks.map(detailHtml).join("");
+    h+='<h2 class="splithead">The full list</h2>';
+    h+=rest.map(detailHtml).join("");
+  }else{
+    h+=all.map(detailHtml).join("");
+  }
   box.innerHTML=h;
 }
 /* ---------- compare: static table (dual render) ---------- */
@@ -283,6 +330,7 @@ wire("coldSel","change",function(){
 wire("cProduct","change",calc);
 wire("cYears","input",calc);
 fillCheckedDates();
+renderPicks();
 renderDetails();
 renderCompareTable();
 renderDiscountTable();
