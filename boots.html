@@ -21,8 +21,8 @@ a{color:#0b5fff}
 .bar{background:#121212;color:#fff;text-align:center;font-size:13px;padding:8px 12px}
 header{background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:10}
 .head{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.logo{font-weight:800;font-size:24px;letter-spacing:-.5px}
-.logo a{color:#121212;text-decoration:none}
+.logo{font-weight:800;font-size:26px;letter-spacing:-.5px;white-space:nowrap}
+.logo a{display:inline-flex;align-items:center;gap:8px;background:#121212;color:#fff;padding:8px 16px;border-radius:10px;text-decoration:none}.logo .mark{color:#ffd24d}.logo .ca{color:#ffd24d;letter-spacing:1px}
 nav{display:flex;gap:16px;flex-wrap:wrap;font-size:15px}
 nav a{color:#121212;text-decoration:none}
 nav a:hover{text-decoration:underline}
@@ -148,7 +148,7 @@ button.btn{font:inherit;cursor:pointer}
 <div class="bar">Prices checked <span data-checked-long></span> · Always confirm the current price at the retailer before buying</div>
 <header>
 <div class="head">
-<span class="logo"><a href="index.html">Winter Clothing Canada</a></span>
+<span class="logo"><a href="index.html"><span class="mark">❄</span> Winter Clothing <span class="ca">CANADA</span></a></span>
 <nav><a href="index.html">Home</a><a href="parkas-extreme-cold.html">Extreme Cold Parkas</a><a href="parkas-budget.html">Budget Parkas</a><a href="parkas-everyday.html">Everyday Parkas</a><a href="boots.html">Boots</a><a href="deals.html">Deals</a></nav>
 <span class="wishcount" id="wishCount"></span>
 <input id="search" type="search" placeholder="Search products…" aria-label="Search products">
