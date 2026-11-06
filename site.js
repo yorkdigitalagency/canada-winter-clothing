@@ -207,10 +207,11 @@ function renderDetails(){
   }
   box.innerHTML=h;
 }
-/* ---------- compare: static table (dual render) ---------- */
+/* ---------- compare: full table on Deals only; guide pages use the pick-driven tray ---------- */
 function renderCompareTable(){
   var box=$("compareTable");if(!box)return;
-  var list=(PAGE_MODE==="home"||PAGE_MODE==="deals")?PRODUCTS:pageProducts();
+  if(PAGE_MODE!=="deals")return; // guide pages: no static dump — compare tray only
+  var list=PRODUCTS;
   var h='<table class="tbl-desktop"><tr><th>Product</th><th>Warmth claim</th><th>Water protection</th><th>Price</th></tr>';
   list.forEach(function(p){
     h+='<tr><td><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></td><td>'+esc(p.warmthText)+'</td><td>'+esc(p.waterText)+'</td><td>'+money(p.price)+'</td></tr>';
@@ -382,6 +383,8 @@ fillCheckedDates();
 renderPicks();
 renderPager();
 renderDetails();
+/* Default compare: the page's top 3 products already in — visitors swap them with + Compare. */
+if(PAGE_MODE!=="home"&&PAGE_MODE!=="deals"){cmp=pageProducts().slice(0,3).map(function(p){return p.slug;});}
 renderCompareTable();
 renderDiscountTable();
 renderSummary();
