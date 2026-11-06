@@ -1,9 +1,9 @@
 /* Winter Clothing Canada — shared page logic.
    Loaded after products.js. Each page defines PAGE_MODE ("home", "guide" or
-   "deals") and PAGE_SLUGS before this file. Home shows the 3 top picks;
+   "deals") and PAGE_SLUGS before this file. Home shows the 6 top picks;
    guide pages show their own subset; the deals page shows the discount
    table only. */
-var TOP_PICKS=["antarctic","concord","marquam"];
+var TOP_PICKS=["antarctic","concord","marquam","expeditionist","granger","frost"];
 var GUIDE_PAGE={
 "antarctic":"parkas-extreme-cold.html","concord":"parkas-extreme-cold.html",
 "marlow-extreme-waterproof-down-parka":"parkas-extreme-cold.html","marquam":"parkas-extreme-cold.html",
@@ -141,7 +141,7 @@ function renderCards(){
   grid.innerHTML=list.map(cardHtml).join("");
   var cl=$("countLine");
   if(cl){
-    if(PAGE_MODE==="home")cl.textContent="Our three top picks.";
+    if(PAGE_MODE==="home")cl.textContent="Our six top picks.";
     else if(isPaged()&&isUnfiltered())cl.textContent="Showing "+PAGE_RANGE[0]+"\u2013"+PAGE_RANGE[1]+" of 16 boots.";
     else cl.textContent="Showing "+list.length+" of "+pageProducts().length+" products on this page.";
   }
@@ -210,7 +210,7 @@ function renderDetails(){
 /* ---------- compare: static table (dual render) ---------- */
 function renderCompareTable(){
   var box=$("compareTable");if(!box)return;
-  var list=PAGE_MODE==="home"?PRODUCTS:pageProducts();
+  var list=(PAGE_MODE==="home"||PAGE_MODE==="deals")?PRODUCTS:pageProducts();
   var h='<table class="tbl-desktop"><tr><th>Product</th><th>Warmth claim</th><th>Water protection</th><th>Price</th></tr>';
   list.forEach(function(p){
     h+='<tr><td><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></td><td>'+esc(p.warmthText)+'</td><td>'+esc(p.waterText)+'</td><td>'+money(p.price)+'</td></tr>';

@@ -2,7 +2,7 @@
 
 Seven pages for real Canadian cold: 50 products from Mountain Warehouse (25) and Columbia (25) — parkas and boots — with CAD prices checked live on the retailers' own sites on November 6, 2026, a live price tracker, a deals page with the biggest discounts, product filters and search, a comparison table, and compact detail sections with honest flaws.
 
-- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): Home — our 3 top picks and links to the four guides.
+- [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): Home — our 6 top picks and links to the four guides.
 - [Best Deals on Winter Parkas & Boots](https://yorkdigitalagency.github.io/canada-winter-clothing/deals.html): Deals — every product on sale, with a photo, the saving shown as a bar, the lowest price seen, and whether the price moved since the last check.
 - [Warmest Parkas for Extreme Cold](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-extreme-cold.html): 12 parkas — the warmest we list. Lab-tested °C where the brand publishes one; Columbia publishes no lab °C rating, so its insulation figures are shown instead.
 - [Budget Parkas Under $200](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-budget.html): 12 parkas — the cheapest we list, all under $200 at the last check.
@@ -20,4 +20,4 @@ Biggest discounts right now (November 6, 2026):
 - Mountain Warehouse EMS Stratus Hooded Packable Down Jacket: $127.99 CAD (was $319.99 CAD, save 60%).
 - Mountain Warehouse Heat Sealed Down Jacket: $159.99 CAD (was $399.99 CAD, save 60%).
 
-This site sells nothing. Retailer links go to the retailers' own pages. No affiliate links are active yet; when added, they will be clearly marked. Product pictures are created images of similar products, not the actual product photos; 50 of 50 products have matched pictures so far. No hands-on testing: warmth and specs are the brands' own published figures.
+Retailer links go to the retailers' own pages. No hands-on testing: warmth and specs are the brands' own published figures.
