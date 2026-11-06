@@ -4,47 +4,14 @@
    guide pages show their own subset; the deals page shows the discount
    table only. */
 var TOP_PICKS=["antarctic","concord","marquam","expeditionist","granger","frost"];
-var GUIDE_PAGE={
-"antarctic":"parkas-extreme-cold.html","concord":"parkas-extreme-cold.html",
-"marlow-extreme-waterproof-down-parka":"parkas-extreme-cold.html","marquam":"parkas-extreme-cold.html",
-"landroamer-ii-parka":"parkas-extreme-cold.html","glacier-ridge-down-jacket":"parkas-extreme-cold.html",
-"thunder-bay-ii-down-jacket":"parkas-extreme-cold.html","winter-district-ii-interchange-jacket":"parkas-extreme-cold.html",
-"sauvie-sky-quad-parka-ic-jacket":"parkas-extreme-cold.html","cape-ridge-parka":"parkas-extreme-cold.html",
-"featherpack-extreme-down-packable-jacket":"parkas-extreme-cold.html","ems-ignite-extreme-down-insulated-jacket":"parkas-extreme-cold.html",
-"henry-ii-extreme-down-jacket":"parkas-budget.html","ems-stratus-hooded-packable-down-jacket":"parkas-budget.html",
-"water-resistant-down-jacket":"parkas-budget.html","frost-extreme-down-jacket":"parkas-budget.html",
-"ems-67-down-jacket":"parkas-budget.html","slope-edge-ii-hooded-jacket":"parkas-budget.html",
-"powder-lite-ii-jacket":"parkas-budget.html","hikebound-ii-insulated-jacket":"parkas-budget.html",
-"pike-lake-ii-jacket":"parkas-budget.html","heat-sealed-down-jacket":"parkas-budget.html",
-"featherweight-extreme-down-hooded-jacket":"parkas-budget.html",
-"frost-tech-extreme-down-padded-jacket":"parkas-everyday.html","ems-frost-tech-extreme-down-jacket":"parkas-everyday.html",
-"tech-down-heat-sealed-coat":"parkas-everyday.html","barlow-pass-turbodown-ii-jacket":"parkas-everyday.html",
-"oak-harbor-ii-insulated-jacket":"parkas-everyday.html","lake-22-ii-down-hooded-jacket":"parkas-everyday.html",
-"pike-lake-ii-hooded-jacket":"parkas-everyday.html","corelite-down-hooded-jacket":"parkas-everyday.html",
-"labyrinth-loop-ii-hooded-jacket":"parkas-everyday.html","street-heights-parka":"parkas-everyday.html",
-"last-tracks-iii-jacket":"parkas-everyday.html",
-"expeditionist":"boots.html","granger":"boots.html","frost":"boots.html",
-"blizzard-snow-boots":"boots.html","ems-vapour-leather-waterproof-thermal-snow-boots":"boots.html",
-"filey-snow-boots":"boots.html","quinn-baffled-snow-boots":"boots.html",
-"arctic-thermal-extreme-waterproof-snow-boots":"boots.html","nevis-extreme-thermal-waterproof-snow-boots":"boots.html",
-"bergen-waterproof-thermal-snow-boots":"boots.html","park-snow-boots":"boots.html",
-"bugaboot-iii-boot":"boots.html","bugaboot-iii-xtm-boot":"boots.html",
-"bugaboot-peak-wide":"boots.html","snowtrekker-ii-boot":"boots.html",
-"fairbanks-omni-heat-boot-wide":"boots.html"
-};
 function $(id){return document.getElementById(id);}
 function bySlug(slug){for(var i=0;i<PRODUCTS.length;i++){if(PRODUCTS[i].slug===slug)return PRODUCTS[i];}return null;}
 function pageProducts(){
   if(PAGE_MODE==="home")return TOP_PICKS.map(bySlug);
   return PAGE_SLUGS.map(bySlug);
 }
-/* Link to a product's detail section: same-page anchor when the detail is on
-   this page, otherwise the guide page that carries it. Home has no detail
-   sections, so its cards always link out to the guide page. */
-function detailLink(p){
-  if(PAGE_MODE==="guide"&&PAGE_SLUGS.indexOf(p.slug)>-1)return "#d-"+p.slug;
-  return GUIDE_PAGE[p.slug]+"#d-"+p.slug;
-}
+/* Every product link goes straight to the retailer's product page (p.url).
+   We sell nothing, so no product link lands on our own site. */
 function money(n){return "$"+Number(n).toFixed(2);}
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 function savePct(p){return p.was?Math.round((1-p.price/p.was)*100):0;}
@@ -63,8 +30,8 @@ function priceHtml(p){
 }
 function trackLine(p){return '<p class="track">Lowest we have seen: '+money(lowestSeen(p))+' · Checked: '+CHECKED_LABEL+'</p>';}
 function picHtml(p,cls){
-  if(p.picture){return '<a href="'+detailLink(p)+'"><img class="'+cls+'" src="'+p.picture+'" alt="'+esc(p.alt)+'"></a>';}
-  return '<a href="'+detailLink(p)+'"><div class="ph"><b>'+esc(p.name)+'</b><span>Picture coming</span></div></a>';
+  if(p.picture){return '<a href="'+esc(p.url)+'" target="_blank" rel="noopener"><img class="'+cls+'" src="'+p.picture+'" alt="'+esc(p.alt)+'"></a>';}
+  return '<a href="'+esc(p.url)+'" target="_blank" rel="noopener"><div class="ph"><b>'+esc(p.name)+'</b><span>Picture coming</span></div></a>';
 }
 function badgeHtml(p){
   if(!p.badge)return "";
@@ -85,7 +52,7 @@ function renderPicks(){
   if(!ps.length){el.innerHTML="";return;}
   var h='<h2 class="splithead">Our picks</h2><div class="picks">';
   ps.forEach(function(p){
-    h+='<div class="pick">'+picHtml(p,"")+'<div class="b">'+badgeHtml(p)+'<h3>'+esc(p.name)+'</h3><p class="spec">'+esc(p.specLine)+'</p><p>'+priceHtml(p)+'</p><p><a href="'+detailLink(p)+'">Read the details \u2193</a></p></div></div>';
+    h+='<div class="pick">'+picHtml(p,"")+'<div class="b">'+badgeHtml(p)+'<h3><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></h3><p class="spec">'+esc(p.specLine)+'</p><p>'+priceHtml(p)+'</p></div></div>';
   });
   h+='</div>';
   el.innerHTML=h;
@@ -123,10 +90,9 @@ function visibleProducts(){
 function cardHtml(p){
   var h='<div class="card">';
   h+=picHtml(p,"");
-  h+='<div class="b">'+badgeHtml(p)+'<h3>'+esc(p.name)+'</h3>';
+  h+='<div class="b">'+badgeHtml(p)+'<h3><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></h3>';
   h+='<p class="spec">'+esc(p.specLine)+'</p><p>'+priceHtml(p)+'</p>'+trackLine(p)+'</div>';
   h+='<div class="go"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">View at '+esc(p.retailer)+' \u2192</a>';
-  h+='<a class="detail" href="'+detailLink(p)+'">Details \u2193</a>';
   h+='<div class="tools"><button class="'+(wish.indexOf(p.slug)>-1?"saved":"")+'" onclick="toggleWish(\''+p.slug+'\')">'+(wish.indexOf(p.slug)>-1?"\u2665 Saved":"\u2661 Save")+'</button>';
   if(PAGE_MODE!=="home"){h+='<button class="'+(cmp.indexOf(p.slug)>-1?"picked":"")+'" onclick="toggleCmp(\''+p.slug+'\')">'+(cmp.indexOf(p.slug)>-1?"\u2713 Comparing":"+ Compare")+'</button>';}
   h+='</div>';
@@ -214,12 +180,12 @@ function renderCompareTable(){
   var list=PRODUCTS;
   var h='<table class="tbl-desktop"><tr><th>Product</th><th>Warmth claim</th><th>Water protection</th><th>Price</th></tr>';
   list.forEach(function(p){
-    h+='<tr><td><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></td><td>'+esc(p.warmthText)+'</td><td>'+esc(p.waterText)+'</td><td>'+money(p.price)+'</td></tr>';
+    h+='<tr><td><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></td><td>'+esc(p.warmthText)+'</td><td>'+esc(p.waterText)+'</td><td>'+money(p.price)+'</td></tr>';
   });
   h+='</table>';
   h+='<div class="tbl-mobile">';
   list.forEach(function(p){
-    h+='<div class="dcard"><h4><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></h4>'
+    h+='<div class="dcard"><h4><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></h4>'
       +'<div class="dl"><b>Warmth</b><span class="v">'+esc(p.warmthText)+'</span></div>'
       +'<div class="dl"><b>Water protection</b><span class="v">'+esc(p.waterText)+'</span></div>'
       +'<div class="dl"><b>Price</b><span class="v">'+money(p.price)+'</span></div></div>';
@@ -260,7 +226,7 @@ function renderDiscountTable(){
   var sale=sortedSale();
   var h='<table class="tbl-desktop"><tr><th>Product</th><th>Now</th><th>Was</th><th>You save</th><th>Lowest seen</th><th>Trend</th><th></th></tr>';
   sale.forEach(function(p){
-    h+='<tr><td><a class="deal-prod" href="'+detailLink(p)+'">'
+    h+='<tr><td><a class="deal-prod" href="'+esc(p.url)+'" target="_blank" rel="noopener">'
       +(p.picture?'<img class="deal-thumb" src="'+p.picture+'" alt="">':'')
       +'<span>'+esc(p.name)+'</span></a></td>'
       +'<td><b>'+money(p.price)+'</b></td>'
@@ -275,7 +241,7 @@ function renderDiscountTable(){
   sale.forEach(function(p){
     h+='<div class="dcard"><div class="deal-prod-m">'
       +(p.picture?'<img class="deal-thumb" src="'+p.picture+'" alt="">':'')
-      +'<h4><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></h4></div>'
+      +'<h4><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></h4></div>'
       +'<div class="dl"><b>Now</b><span class="v"><b>'+money(p.price)+'</b> <span class="was">'+money(p.was)+'</span></span></div>'
       +'<div class="dl"><b>You save</b><span class="v">'+savePct(p)+'% ('+money(p.was-p.price)+' off)</span></div>'
       +'<div class="savebar"><span style="width:'+savePct(p)+'%"></span></div>'
@@ -306,7 +272,7 @@ function renderCmpTray(){
     return;
   }
   var picked=cmp.map(bySlug);
-  var h='<table class="tbl-desktop"><tr><th></th>'+picked.map(function(p){return '<th><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></th>';}).join("")+'</tr>';
+  var h='<table class="tbl-desktop"><tr><th></th>'+picked.map(function(p){return '<th><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></th>';}).join("")+'</tr>';
   var rows=[["Warmth",function(p){return p.warmthText;}],["Water protection",function(p){return p.waterText;}],["Price",function(p){return money(p.price)+(p.was?" (was "+money(p.was)+")":"");}],["Lowest seen",function(p){return money(lowestSeen(p));}],["Retailer",function(p){return p.retailer;}]];
   rows.forEach(function(r){
     h+='<tr><td><b>'+r[0]+'</b></td>'+picked.map(function(p){return '<td>'+esc(r[1](p))+'</td>';}).join("")+'</tr>';
@@ -314,7 +280,7 @@ function renderCmpTray(){
   h+='</table>';
   h+='<div class="tbl-mobile">';
   picked.forEach(function(p){
-    h+='<div class="dcard"><h4><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></h4>'
+    h+='<div class="dcard"><h4><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a></h4>'
       +'<div class="dl"><b>Warmth</b><span class="v">'+esc(p.warmthText)+'</span></div>'
       +'<div class="dl"><b>Water protection</b><span class="v">'+esc(p.waterText)+'</span></div>'
       +'<div class="dl"><b>Price</b><span class="v">'+money(p.price)+(p.was?' (was '+money(p.was)+')':'')+'</span></div>'
@@ -346,7 +312,7 @@ function quiz(){
   if(budget==="low"){var cheap=cands.filter(function(p){return p.price<200;});if(cheap.length)cands=cheap;}
   cands.sort(function(a,b){return a.price-b.price;});
   var pick=cands[0];
-  res.innerHTML='Start here: <a href="'+detailLink(pick)+'">'+esc(pick.name)+'</a> — '+money(pick.price)+', '+esc(pick.warmthText)+' — a suggested starting point, not a guarantee. Check its details and the retailer page before buying.';
+  res.innerHTML='Start here: <a href="'+esc(pick.url)+'" target="_blank" rel="noopener">'+esc(pick.name)+'</a> — '+money(pick.price)+', '+esc(pick.warmthText)+' — a suggested starting point, not a guarantee. Check the retailer page before buying.';
 }
 function calc(){
   var sel=$("cProduct");if(!sel)return;
