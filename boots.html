@@ -137,6 +137,11 @@ button.btn{font:inherit;cursor:pointer}
 .splithead{font-size:24px;margin:28px 0 12px}
 #picks .splithead{margin-top:0}
 @media(max-width:700px){.picks{grid-template-columns:1fr}}
+
+.pager{display:flex;gap:10px;justify-content:center;align-items:center;margin:20px 0;font-size:15px}
+.pager a{border:1px solid #ccc;background:#fff;color:#121212;text-decoration:none;padding:8px 14px;border-radius:4px;font-weight:700}
+.pager a:hover{border-color:#121212}
+.pager b{background:#121212;color:#fff;padding:8px 14px;border-radius:4px}
 </style>
 </head>
 <body>
@@ -152,8 +157,8 @@ button.btn{font:inherit;cursor:pointer}
 <main>
 <div class="pageintro">
 <h1>Winter boots for Canada</h1>
-<p>All 16 boots we list — snow boots for Canadian winter from Mountain Warehouse and Columbia, with CAD prices and honest flaws. Warmth figures are the brands’ own published ratings where they publish one.</p>
-<p class="countline">16 products · Prices checked <span data-checked-long></span></p>
+<p>Boots 1–8 of 16 — snow boots for Canadian winter from Mountain Warehouse and Columbia, with CAD prices and honest flaws. Page 1 of 2. Warmth figures are the brands’ own published ratings where they publish one.</p>
+<p class="countline">Page 1 of 2 · Boots 1–8 of 16 · Prices checked <span data-checked-long></span></p>
 </div>
 
 <div id="picks"></div>
@@ -182,6 +187,7 @@ button.btn{font:inherit;cursor:pointer}
 <p class="countline" id="countLine"></p>
 <div class="grid" id="shop"></div>
 <div id="seeMore"></div>
+<div id="pager"></div>
 <p class="note">Product pictures are created images of similar products, not the actual product photos. Prices checked <span data-checked-long></span>.</p>
 
 <section class="box" id="compare">
@@ -202,7 +208,7 @@ button.btn{font:inherit;cursor:pointer}
 <p>Winter Clothing Canada · Prices checked <span data-checked-long></span> · No tracking cookies · Product pictures are created images of similar products, not the actual product photos</p>
 <p><a href="index.html">Home</a> · <a href="parkas-extreme-cold.html">Extreme Cold Parkas</a> · <a href="parkas-budget.html">Budget Parkas</a> · <a href="parkas-everyday.html">Everyday Parkas</a> · <a href="boots.html">Boots</a> · <a href="index.html#money">How we make money</a></p>
 </footer>
-<script>var PAGE_MODE="guide";var PAGE_SLUGS=["expeditionist", "granger", "frost", "blizzard-snow-boots", "ems-vapour-leather-waterproof-thermal-snow-boots", "filey-snow-boots", "quinn-baffled-snow-boots", "arctic-thermal-extreme-waterproof-snow-boots", "nevis-extreme-thermal-waterproof-snow-boots", "bergen-waterproof-thermal-snow-boots", "park-snow-boots", "bugaboot-iii-boot", "bugaboot-iii-xtm-boot", "bugaboot-peak-wide", "snowtrekker-ii-boot", "fairbanks-omni-heat-boot-wide"];</script>
+<script>var PAGE_MODE="guide";var PAGE_SLUGS=["expeditionist", "granger", "frost", "blizzard-snow-boots", "ems-vapour-leather-waterproof-thermal-snow-boots", "filey-snow-boots", "quinn-baffled-snow-boots", "arctic-thermal-extreme-waterproof-snow-boots"];var PAGE_PAGED=true;var PAGE_RANGE=[1,8];var PAGE_NUM=1;var PAGE_TOTAL=2;var PAGE_PREV=null;var PAGE_NEXT="boots-page-2.html";</script>
 <script src="products.js"></script>
 <script src="site.js"></script>
 </body>

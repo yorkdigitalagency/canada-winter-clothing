@@ -135,11 +135,12 @@ function renderCards(){
   var grid=$("shop");if(!grid)return;
   var list=visibleProducts();
   var limited=false;
-  if(PAGE_MODE==="guide"&&!showAll&&isUnfiltered()&&list.length>6){list=list.slice(0,6);limited=true;}
+  if(PAGE_MODE==="guide"&&!showAll&&isUnfiltered()&&!isPaged()&&list.length>6){list=list.slice(0,6);limited=true;}
   grid.innerHTML=list.map(cardHtml).join("");
   var cl=$("countLine");
   if(cl){
     if(PAGE_MODE==="home")cl.textContent="Our six top picks.";
+    else if(isPaged()&&isUnfiltered())cl.textContent="Showing "+PAGE_RANGE[0]+"\u2013"+PAGE_RANGE[1]+" of 16 boots.";
     else cl.textContent="Showing "+list.length+" of "+pageProducts().length+" products on this page.";
   }
   var sm=$("seeMore");
@@ -152,11 +153,26 @@ function renderCards(){
 /* GearJunkie-style "See more picks": the grid shows the first 6 until the
    visitor asks for the rest. Filters and search always show all matches. */
 var showAll=false;
+function isPaged(){return typeof PAGE_PAGED!=="undefined"&&PAGE_PAGED;}
 function isUnfiltered(){
   var qEl=$("search"),q=qEl?qEl.value.trim():"";
   return !q&&maxPrice>=550&&coldReq===null;
 }
 function toggleSeeMore(){showAll=!showAll;renderCards();}
+/* ---------- pager (REI/Backcountry pattern: real pages, real links) ---------- */
+function renderPager(){
+  var el=$("pager");if(!el)return;
+  if(typeof PAGE_NUM==="undefined"){el.innerHTML="";return;}
+  var h='<div class="pager">';
+  if(PAGE_PREV)h+='<a href="'+PAGE_PREV+'">\u2190 Previous</a>';
+  for(var i=1;i<=PAGE_TOTAL;i++){
+    var url=i===1?"boots.html":"boots-page-"+i+".html";
+    h+=i===PAGE_NUM?'<b>'+i+'</b>':'<a href="'+url+'">'+i+'</a>';
+  }
+  if(PAGE_NEXT)h+='<a href="'+PAGE_NEXT+'">Next \u2192</a>';
+  h+='</div>';
+  el.innerHTML=h;
+}
 /* ---------- detail sections ---------- */
 function detailHtml(p){
   var h='<section class="box detail" id="d-'+p.slug+'"><div class="pdp">';
@@ -331,6 +347,7 @@ wire("cProduct","change",calc);
 wire("cYears","input",calc);
 fillCheckedDates();
 renderPicks();
+renderPager();
 renderDetails();
 renderCompareTable();
 renderDiscountTable();

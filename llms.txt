@@ -1,12 +1,13 @@
 # Winter Clothing Canada
 
-Five guide pages for real Canadian cold: 50 products from Mountain Warehouse (25) and Columbia (25) — parkas and boots — with CAD prices checked live on the retailers' own sites on November 5, 2026, a live price tracker and discount tracker, product filters and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
+Six pages for real Canadian cold: 50 products from Mountain Warehouse (25) and Columbia (25) — parkas and boots — with CAD prices checked live on the retailers' own sites on November 5, 2026, a live price tracker and discount tracker, product filters and search, a find-yours quiz, a cost-per-winter calculator, a comparison table, and compact detail sections with honest flaws.
 
 - [Winter Clothing Canada](https://yorkdigitalagency.github.io/canada-winter-clothing/): Home — our 6 top picks, the live price tracker summary, the biggest-discounts table, the find-yours quiz, the cost-per-winter calculator, and links to the four guides.
 - [Warmest Parkas for Extreme Cold](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-extreme-cold.html): 12 parkas — the warmest we list. Lab-tested °C where the brand publishes one; Columbia publishes no lab °C rating, so its insulation figures are shown instead.
 - [Budget Parkas Under $200](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-budget.html): 12 parkas — the cheapest we list, all under $200 at the last check.
 - [Everyday Parkas](https://yorkdigitalagency.github.io/canada-winter-clothing/parkas-everyday.html): 11 parkas — for city winter and short trips outside.
-- [Winter Boots](https://yorkdigitalagency.github.io/canada-winter-clothing/boots.html): 16 boots — snow boots from both brands.
+- [Winter Boots](https://yorkdigitalagency.github.io/canada-winter-clothing/boots.html): 16 boots — snow boots from both brands, split across two pages (page 1: boots 1–8, page 2: boots 9–16).
+- [Winter Boots, page 2](https://yorkdigitalagency.github.io/canada-winter-clothing/boots-page-2.html): boots 9–16.
 
 Price tracker (checked November 5, 2026; re-checked three times a day): 50 products tracked, 28 on sale right now. Biggest saving: Mountain Warehouse Antarctic Extreme, 63% off — $340 CAD off ($199.99 CAD, was $539.99 CAD). Every product shows the date its price was last checked and the lowest price we have seen; a re-check that finds a lower price adds a "Price dropped" badge. Prices range $49.99–$549.99 CAD. Prices change — the retailer's page is the final word.
 
