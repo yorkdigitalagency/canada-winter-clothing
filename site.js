@@ -98,7 +98,7 @@ function toggleWish(id){var i=wish.indexOf(id);if(i>-1){wish.splice(i,1);}else{w
 function toggleCmp(id){
   var i=cmp.indexOf(id);
   if(i>-1){cmp.splice(i,1);}
-  else{if(cmp.length>=3){alert("Pick up to 3 products to compare.");return;}cmp.push(id);}
+  else{if(cmp.length>=3){cmp.shift();}cmp.push(id);} // 3 already in: swap the oldest out
   renderCards();renderCmpTray();
 }
 function clearCmp(){cmp=[];renderCards();renderCmpTray();}
