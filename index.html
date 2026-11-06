@@ -136,7 +136,7 @@ button.btn{font:inherit;cursor:pointer}
 <header>
 <div class="head">
 <span class="logo"><a href="index.html">Winter Clothing Canada</a></span>
-<nav><a href="index.html">Home</a><a href="parkas-extreme-cold.html">Extreme Cold Parkas</a><a href="parkas-budget.html">Budget Parkas</a><a href="parkas-everyday.html">Everyday Parkas</a><a href="boots.html">Boots</a></nav>
+<nav><a href="index.html">Home</a><a href="parkas-extreme-cold.html">Extreme Cold Parkas</a><a href="parkas-budget.html">Budget Parkas</a><a href="parkas-everyday.html">Everyday Parkas</a><a href="boots.html">Boots</a><a href="deals.html">Deals</a></nav>
 <span class="wishcount" id="wishCount"></span>
 
 </div>
@@ -146,17 +146,12 @@ button.btn{font:inherit;cursor:pointer}
 <img src="hero.webp" alt="A person walking through a snow-covered forest in winter">
 <div>
 <h1>Winter gear for real Canadian cold.</h1>
-<p>Fifty products, two brands, no fluff. Parkas and boots from Mountain Warehouse and Columbia, with Canadian prices, honest flaws, and a link to the retailer for each one.</p>
+<p>Three picks, two brands, no fluff. Parkas and boots from Mountain Warehouse and Columbia, with Canadian prices and honest flaws.</p>
 <p><a class="btn" href="parkas-extreme-cold.html">Shop parkas</a><a class="btn alt" href="boots.html">Shop boots</a></p>
 </div>
 </div>
 
 <div class="strip" id="summaryStrip"></div>
-
-<section class="box" id="how">
-<h2>How we pick</h2>
-<p>We list 50 products from two brands sold in Canada: Mountain Warehouse and Columbia. Every price was checked live on the retailer’s own site, and the price tracker re-checks them three times a day. No hands-on testing: warmth and specs are the brands’ own published figures, and where a brand publishes no lab °C rating we say so instead of guessing. Product pictures are created images of similar products, not the actual product photos. Retailer links are plain links — no affiliate commission is paid on them yet.</p>
-</section>
 
 <h2 style="margin:28px 0 0">Our top picks</h2>
 <p class="countline" id="countLine"></p>
@@ -173,66 +168,18 @@ button.btn{font:inherit;cursor:pointer}
 </div>
 </section>
 
-<section class="box" id="discounts">
-<h2>Biggest discounts right now</h2>
-<div class="sortbar">
-<button data-dsort="pct" class="on">Biggest % off</button>
-<button data-dsort="saved">Most $ saved</button>
-<button data-dsort="price">Lowest price</button>
-</div>
-<div id="discountTable"></div>
-<p class="note">Price tracker: prices re-checked three times a day — every price shows the date it was last checked and the lowest price we have seen.</p>
+<section class="box" id="how">
+<h2>How we pick</h2>
+<p>We list 50 products from Mountain Warehouse and Columbia, sold in Canada. Every price was checked live on the retailer’s own site and is re-checked three times a day. No hands-on testing: warmth and specs are the brands’ own published figures, and where a brand publishes no lab °C rating we say so instead of guessing.</p>
 </section>
 
-<section class="box" id="quiz">
-<h2>Find yours in 30 seconds</h2>
-<label>How cold will it get?
-<select id="qCold"><option value="extreme">Below −30°C / long time outside</option><option value="cold">−15°C to −30°C</option><option value="city">City winter, mostly short trips</option></select></label>
-<label>Parka or boots?
-<select id="qType"><option value="parka">Parka</option><option value="boots">Boots</option></select></label>
-<label>Budget?
-<select id="qBudget"><option value="any">Any of these</option><option value="low">Under $200 if possible</option></select></label>
-<p id="quizResult"></p>
-</section>
-
-<section class="box">
-<h2>What does it cost per winter?</h2>
-<label>Product
-<select id="cProduct"></select></label>
-<label>Winters you expect it to last: <span id="cYearsOut">5</span>
-<input id="cYears" type="range" min="1" max="10" value="5"></label>
-<p id="calcResult"></p>
-</section>
-
-<section class="box" id="compare">
-<h2>Compare at a glance</h2>
-<p>Tick “+ Compare” on up to 3 cards to see them side by side here.</p>
-<div id="cmpTray"></div>
-<div id="compareTable"></div>
-</section>
-
-<div id="details"></div>
-
-<section class="box faq" id="faq">
-<h2>Questions, answered straight</h2>
-<details><summary>How are the prices checked?</summary><p>Every price on this page was checked live on the retailer’s own site on <span data-checked-long></span>. Prices change — the retailer’s page is the final word, and every product shows the date it was last checked and the lowest price we have seen.</p></details>
-<details><summary>Are the pictures the real product photos?</summary><p>No. Product pictures are created images of similar products, not the actual product photos. Pictures for the new products are being made to match each product — colour, cut and details — before they are shown.</p></details>
-<details><summary>How does this site make money?</summary><p>Right now, nothing: every retailer link on this page is a plain link and no affiliate commission is paid on it. When affiliate links are added, they will be clearly marked, and brands never pay for placement.</p></details>
-<details><summary>What if my size is out of stock?</summary><p>Sizes shown are the sizes that were selectable when we checked on <span data-checked-long></span>. Several products are limited to a few sizes — the detail block says so where that is the case. Check the retailer page before buying.</p></details>
-<details><summary>Do you test the products?</summary><p>No hands-on testing. Warmth and specs are the brands’ own published figures — lab-tested °C where the brand publishes one. Where a brand publishes no °C rating, we say so instead of guessing.</p></details>
-<details><summary>What does the price tracker do?</summary><p>Every product carries its price history, starting November 5, 2026. The discount table above ranks the biggest savings right now, and each product shows the lowest price we have seen. When a re-check finds a lower price, the product gets a “Price dropped” badge.</p></details>
-</section>
-
-<section class="box" id="money">
-<h2>How we make money</h2>
-<p>Right now, nothing: every retailer link on this page is a plain link and no affiliate commission is paid on it. When affiliate links are added, they will be clearly marked, and brands never pay for placement. Prices change — every price here was checked <span data-checked-long></span>, and the retailer's page is the final word. This site sells nothing itself.</p>
-</section>
+<p class="note" id="money">How we make money: right now, nothing. Every retailer link is a plain link and no affiliate commission is paid on it. When affiliate links are added, they will be clearly marked, and brands never pay for placement. This site sells nothing itself.</p>
 </main>
 <footer>
 <p>Winter Clothing Canada · Prices checked <span data-checked-long></span> · No tracking cookies · Product pictures are created images of similar products, not the actual product photos</p>
-<p><a href="index.html">Home</a> · <a href="parkas-extreme-cold.html">Extreme Cold Parkas</a> · <a href="parkas-budget.html">Budget Parkas</a> · <a href="parkas-everyday.html">Everyday Parkas</a> · <a href="boots.html">Boots</a> · <a href="index.html#money">How we make money</a></p>
+<p><a href="index.html">Home</a> · <a href="parkas-extreme-cold.html">Extreme Cold Parkas</a> · <a href="parkas-budget.html">Budget Parkas</a> · <a href="parkas-everyday.html">Everyday Parkas</a> · <a href="boots.html">Boots</a> · <a href="deals.html">Deals</a> · <a href="index.html#money">How we make money</a></p>
 </footer>
-<script>var PAGE_MODE="home";var PAGE_SLUGS=["antarctic", "concord", "marquam", "expeditionist", "granger", "frost"];</script>
+<script>var PAGE_MODE="home";var PAGE_SLUGS=["antarctic", "concord", "marquam"];</script>
 <script src="products.js"></script>
 <script src="site.js"></script>
 </body>

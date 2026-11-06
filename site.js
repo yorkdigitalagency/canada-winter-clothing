@@ -1,8 +1,9 @@
 /* Winter Clothing Canada — shared page logic.
-   Loaded after products.js. Each page defines PAGE_MODE ("home" or "guide")
-   and PAGE_SLUGS before this file. Home shows the 6 top picks; guide pages
-   show their own subset. Quiz + calculator live on home only, across all 50. */
-var TOP6_SLUGS=["antarctic","concord","marquam","expeditionist","granger","frost"];
+   Loaded after products.js. Each page defines PAGE_MODE ("home", "guide" or
+   "deals") and PAGE_SLUGS before this file. Home shows the 3 top picks;
+   guide pages show their own subset; the deals page shows the discount
+   table only. */
+var TOP_PICKS=["antarctic","concord","marquam"];
 var GUIDE_PAGE={
 "antarctic":"parkas-extreme-cold.html","concord":"parkas-extreme-cold.html",
 "marlow-extreme-waterproof-down-parka":"parkas-extreme-cold.html","marquam":"parkas-extreme-cold.html",
@@ -34,13 +35,13 @@ var GUIDE_PAGE={
 function $(id){return document.getElementById(id);}
 function bySlug(slug){for(var i=0;i<PRODUCTS.length;i++){if(PRODUCTS[i].slug===slug)return PRODUCTS[i];}return null;}
 function pageProducts(){
-  if(PAGE_MODE==="home")return TOP6_SLUGS.map(bySlug);
+  if(PAGE_MODE==="home")return TOP_PICKS.map(bySlug);
   return PAGE_SLUGS.map(bySlug);
 }
 /* Link to a product's detail section: same-page anchor when the detail is on
-   this page, otherwise the guide page that carries it. */
+   this page, otherwise the guide page that carries it. Home has no detail
+   sections, so its cards always link out to the guide page. */
 function detailLink(p){
-  if(PAGE_MODE==="home"&&TOP6_SLUGS.indexOf(p.slug)>-1)return "#d-"+p.slug;
   if(PAGE_MODE==="guide"&&PAGE_SLUGS.indexOf(p.slug)>-1)return "#d-"+p.slug;
   return GUIDE_PAGE[p.slug]+"#d-"+p.slug;
 }
@@ -127,7 +128,8 @@ function cardHtml(p){
   h+='<div class="go"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">View at '+esc(p.retailer)+' \u2192</a>';
   h+='<a class="detail" href="'+detailLink(p)+'">Details \u2193</a>';
   h+='<div class="tools"><button class="'+(wish.indexOf(p.slug)>-1?"saved":"")+'" onclick="toggleWish(\''+p.slug+'\')">'+(wish.indexOf(p.slug)>-1?"\u2665 Saved":"\u2661 Save")+'</button>';
-  h+='<button class="'+(cmp.indexOf(p.slug)>-1?"picked":"")+'" onclick="toggleCmp(\''+p.slug+'\')">'+(cmp.indexOf(p.slug)>-1?"\u2713 Comparing":"+ Compare")+'</button></div>';
+  if(PAGE_MODE!=="home"){h+='<button class="'+(cmp.indexOf(p.slug)>-1?"picked":"")+'" onclick="toggleCmp(\''+p.slug+'\')">'+(cmp.indexOf(p.slug)>-1?"\u2713 Comparing":"+ Compare")+'</button>';}
+  h+='</div>';
   h+='</div></div>';
   return h;
 }
@@ -139,7 +141,7 @@ function renderCards(){
   grid.innerHTML=list.map(cardHtml).join("");
   var cl=$("countLine");
   if(cl){
-    if(PAGE_MODE==="home")cl.textContent="Our six top picks.";
+    if(PAGE_MODE==="home")cl.textContent="Our three top picks.";
     else if(isPaged()&&isUnfiltered())cl.textContent="Showing "+PAGE_RANGE[0]+"\u2013"+PAGE_RANGE[1]+" of 16 boots.";
     else cl.textContent="Showing "+list.length+" of "+pageProducts().length+" products on this page.";
   }
@@ -224,7 +226,7 @@ function renderCompareTable(){
   h+='</div>';
   box.innerHTML=h;
 }
-/* ---------- discounts: sortable, dual render ---------- */
+/* ---------- discounts: visual, sortable, dual render ---------- */
 var discSort="pct";
 function sortedSale(){
   var sale=PRODUCTS.filter(function(p){return p.was;});
@@ -233,21 +235,52 @@ function sortedSale(){
   else sale.sort(function(a,b){return savePct(b)-savePct(a);});
   return sale;
 }
+/* Price move since the previous check: green down, red up, flat otherwise. */
+function trendHtml(p){
+  if(p.history.length<2)return '<span class="trend-flat">Newly tracked</span>';
+  var last=p.history[p.history.length-1],prev=p.history[p.history.length-2];
+  var d=last.price-prev.price;
+  if(d<0)return '<span class="trend-down">\u2193 '+money(-d)+' since '+prev.date+'</span>';
+  if(d>0)return '<span class="trend-up">\u2191 '+money(d)+' since '+prev.date+'</span>';
+  return '<span class="trend-flat">No change</span>';
+}
+/* Mini bars: one bar per price check so far, taller = higher price that day. */
+function histBars(p){
+  var hs=p.history;if(!hs||!hs.length)return "";
+  var mx=0;hs.forEach(function(e){if(e.price>mx)mx=e.price;});
+  var bars=hs.map(function(e){
+    var h=Math.max(3,Math.round(e.price/mx*22));
+    return '<span class="hbar" style="height:'+h+'px" title="'+e.date+': '+money(e.price)+'"></span>';
+  }).join("");
+  return '<span class="hbars">'+bars+'</span>';
+}
 function renderDiscountTable(){
   var box=$("discountTable");if(!box)return;
   var sale=sortedSale();
-  var h='<table class="tbl-desktop"><tr><th>Product</th><th>Current price</th><th>Was</th><th>SAVE</th><th>Retailer</th></tr>';
+  var h='<table class="tbl-desktop"><tr><th>Product</th><th>Now</th><th>Was</th><th>You save</th><th>Lowest seen</th><th>Trend</th><th></th></tr>';
   sale.forEach(function(p){
-    h+='<tr><td><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></td><td>'+money(p.price)+'</td><td>'+money(p.was)+'</td><td>'+savePct(p)+'% ('+money(p.was-p.price)+' off)</td><td>'+esc(p.retailer)+'</td></tr>';
+    h+='<tr><td><a class="deal-prod" href="'+detailLink(p)+'">'
+      +(p.picture?'<img class="deal-thumb" src="'+p.picture+'" alt="">':'')
+      +'<span>'+esc(p.name)+'</span></a></td>'
+      +'<td><b>'+money(p.price)+'</b></td>'
+      +'<td><span class="was">'+money(p.was)+'</span></td>'
+      +'<td><div class="savebar"><span style="width:'+savePct(p)+'%"></span></div><b>'+savePct(p)+'%</b> \u00b7 '+money(p.was-p.price)+' off</td>'
+      +'<td>'+money(lowestSeen(p))+histBars(p)+'</td>'
+      +'<td>'+trendHtml(p)+'</td>'
+      +'<td><a class="btn small" href="'+esc(p.url)+'" target="_blank" rel="noopener">View \u2192</a></td></tr>';
   });
   h+='</table>';
   h+='<div class="tbl-mobile">';
   sale.forEach(function(p){
-    h+='<div class="dcard"><h4><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></h4>'
-      +'<div class="dl"><b>Current price</b><span class="v">'+money(p.price)+'</span></div>'
-      +'<div class="dl"><b>Was</b><span class="v">'+money(p.was)+'</span></div>'
-      +'<div class="dl"><b>SAVE</b><span class="v">'+savePct(p)+'% ('+money(p.was-p.price)+' off)</span></div>'
-      +'<div class="dl"><b>Retailer</b><span class="v">'+esc(p.retailer)+'</span></div></div>';
+    h+='<div class="dcard"><div class="deal-prod-m">'
+      +(p.picture?'<img class="deal-thumb" src="'+p.picture+'" alt="">':'')
+      +'<h4><a href="'+detailLink(p)+'">'+esc(p.name)+'</a></h4></div>'
+      +'<div class="dl"><b>Now</b><span class="v"><b>'+money(p.price)+'</b> <span class="was">'+money(p.was)+'</span></span></div>'
+      +'<div class="dl"><b>You save</b><span class="v">'+savePct(p)+'% ('+money(p.was-p.price)+' off)</span></div>'
+      +'<div class="savebar"><span style="width:'+savePct(p)+'%"></span></div>'
+      +'<div class="dl"><b>Lowest seen</b><span class="v">'+money(lowestSeen(p))+histBars(p)+'</span></div>'
+      +'<div class="dl"><b>Trend</b><span class="v">'+trendHtml(p)+'</span></div>'
+      +'<p><a class="btn" href="'+esc(p.url)+'" target="_blank" rel="noopener">View at '+esc(p.retailer)+' \u2192</a></p></div>';
   });
   h+='</div>';
   box.innerHTML=h;
@@ -262,7 +295,7 @@ function renderSummary(){
   var best=null,bestPct=0;
   onSale.forEach(function(p){var s=savePct(p);if(s>bestPct){bestPct=s;best=p;}});
   el.innerHTML=
-    '<b>'+PRODUCTS.length+' products tracked</b> · '+onSale.length+' on sale right now · Biggest saving: <b>'+bestPct+'% ('+money(best.was-best.price)+' off)</b> on '+esc(best.name)+' · Last full check: '+CHECKED_LONG;
+    '<b>'+onSale.length+' on sale right now</b> · Biggest saving: <b>'+bestPct+'% ('+money(best.was-best.price)+' off)</b> on '+esc(best.name)+' · <a href="deals.html" style="color:#ffd24d">See all deals →</a>';
 }
 /* ---------- compare tray: live, dual render ---------- */
 function renderCmpTray(){
