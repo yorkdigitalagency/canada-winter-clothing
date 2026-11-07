@@ -213,7 +213,7 @@ function trendHtml(p){
 }
 /* Mini bars: one bar per price check so far, taller = higher price that day. */
 function histBars(p){
-  var hs=p.history;if(!hs||!hs.length)return "";
+  var hs=p.history.slice(-8);if(!hs||!hs.length)return "";
   var mx=0;hs.forEach(function(e){if(e.price>mx)mx=e.price;});
   var bars=hs.map(function(e){
     var h=Math.max(3,Math.round(e.price/mx*22));
