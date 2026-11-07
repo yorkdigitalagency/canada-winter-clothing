@@ -75,7 +75,7 @@ section.box h2{font-size:24px;margin:0 0 12px}
 section.box label{font-weight:600}
 section.box select,section.box input[type=range]{width:100%;padding:8px;font-size:15px;margin:6px 0 14px}
 #quizResult,#calcResult{font-weight:700;font-size:18px}
-table{width:100%;border-collapse:collapse;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px} #compareTable,#discountTable{overflow-x:auto;-webkit-overflow-scrolling:touch}
 th,td{border:1px solid #ddd;padding:8px;text-align:left}
 th{background:#f0f0f0}
 .detail{margin-top:28px}
@@ -108,10 +108,10 @@ img{max-width:100%}
 .tbl-mobile{display:none}
 .dcard{background:#fff;border:1px solid #ddd;padding:12px 14px;margin-bottom:10px}
 .dcard h4{margin:0 0 6px;font-size:16px;line-height:1.35}
-.dcard h4 a{color:#121212}
+.dcard h4 a{color:#121212}.dcard h4 a{overflow-wrap:anywhere}
 .dcard .dl{display:flex;justify-content:space-between;gap:12px;padding:3px 0;font-size:14px}
 .dcard .dl b{font-weight:600;flex:none}
-.dcard .dl .v{text-align:right;overflow-wrap:break-word}
+.dcard .dl .v{min-width:0;overflow-wrap:anywhere}
 .sortbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
 .sortbar button{border:1px solid #ccc;background:#fff;padding:8px 14px;border-radius:20px;font-size:14px;cursor:pointer}
 .sortbar button.on{background:#121212;color:#fff;border-color:#121212}
